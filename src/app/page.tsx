@@ -311,6 +311,8 @@ export default function FinestPropertyServices() {
         
         .footer-link { color: #aaa; text-decoration: none; font-size: 13px; line-height: 2; transition: color 0.2s; display: block; }
         .footer-link:hover { color: #f5a623; }
+        .why-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 250px; margin: 0 auto; box-sizing: border-box; }
+          .why-title { white-space: normal; overflow: visible; text-overflow: clip; max-width: none; width: auto; margin: 0 auto; box-sizing: border-box; }
         /* Floating live-help button */
         .live-button-container { position: fixed; right: 20px; bottom: 20px; z-index: 2200; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 12px; }
         .live-button { position: relative; background: #f5a623; color: #111122; border: none; width: 56px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(26,26,46,0.18); cursor: pointer; font-weight: 800; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 12px; padding: 0 12px; overflow: visible; }
@@ -405,6 +407,7 @@ export default function FinestPropertyServices() {
           .area-cta-button { min-width: 0; width: 100%; }
           .faq-question { gap: 16px; align-items: flex-start; }
           .faq-answer { padding-left: 0; padding-right: 0; }
+          .why-title { white-space: normal !important; width: auto !important; }
         }
       `}</style>
 
@@ -520,7 +523,7 @@ export default function FinestPropertyServices() {
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: 14, background: "#f5a623", width: 64, height: 64, borderRadius: "50%", alignItems: "center", margin: "0 auto 14px", color: "#fff" }}>
                   {item.icon}
                 </div>
-                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, fontWeight: 700, color: "#2F3A56", textTransform: "uppercase", marginBottom: 10, letterSpacing: 0.5 }}>{item.title}</h3>
+                <h3 className="why-title" style={{ fontFamily: "'poppins', sans-serif", fontSize: 18, fontWeight: 700, color: "#2F3A56", textTransform: "uppercase", marginBottom: 10, letterSpacing: 0.5 }}>{item.title}</h3>
                 <p style={{ fontSize: 13, color: "#2F3A56", lineHeight: 1.6 }}>{item.desc}</p>
               </div>
             ))}
