@@ -106,6 +106,7 @@ export default function FinestPropertyServices() {
   const [showAllServices, setShowAllServices] = useState(false);
   const [activeReviewSlide, setActiveReviewSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [liveOpen, setLiveOpen] = useState(false);
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const isDragging = useRef(false);
 
@@ -309,6 +310,21 @@ export default function FinestPropertyServices() {
         
         .footer-link { color: #aaa; text-decoration: none; font-size: 13px; line-height: 2; transition: color 0.2s; display: block; }
         .footer-link:hover { color: #f5a623; }
+        /* Floating live-help button */
+        .live-button-container { position: fixed; right: 20px; bottom: 20px; z-index: 2200; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 12px; }
+        .live-button { position: relative; background: #f5a623; color: #111122; border: none; width: 56px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(26,26,46,0.18); cursor: pointer; font-weight: 800; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 12px; padding: 0 12px; }
+        .live-button:focus { outline: 3px solid rgba(245,166,35,0.22); }
+        .live-button::after { content: ''; position: absolute; top: -6px; right: -6px; width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0 rgba(245,166,35,0.9); }
+        @keyframes liveBeat { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,166,35,0.9); } 60% { transform: scale(1.4); box-shadow: 0 0 18px 8px rgba(245,166,35,0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,166,35,0); } }
+        .live-button::after { animation: liveBeat 1.6s ease-in-out infinite; }
+        .live-options { display: none; flex-direction: column; gap: 10px; align-items: center; }
+        .live-button-container.open .live-options { display: flex; }
+        .live-option { width: 48px; height: 48px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); transition: transform 0.18s, opacity 0.18s; }
+        .live-option.whatsapp { background: #25D366; }
+        .live-option.messenger { background: #0084FF; }
+        .live-option.facebook { background: #1877F2; }
+        .live-option:hover { transform: translateY(-3px); }
+        .live-option-label { font-size: 12px; margin-left: 8px; color: #fff; font-weight: 700; }
         
         .yellow-bar { background: #f5a623; color: #fff; }
         
@@ -369,7 +385,7 @@ export default function FinestPropertyServices() {
           .hero-actions { flex-direction: column !important; }
           .hero-actions .btn-primary, .hero-actions .btn-outline { width: 100%; }
           .services-grid, .why-grid, .work-grid, .trust-grid, .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-          .footer-grid { grid-template-columns: 1fr !important; }
+          .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
           .work-grid > :last-child:nth-child(odd) { width: calc((100% - 20px) / 2); min-width: 0; }
           .service-card { padding: 24px 16px 20px; }
           .review-shell { position: relative; padding: 0 42px; }
@@ -383,7 +399,7 @@ export default function FinestPropertyServices() {
           .area-panel-title { font-size: 19px; }
           .trust-badge-title { font-size: 15px; }
           .cert-logo-label { font-size: 11px; text-align: center; padding: 0 8px; }
-          .area-list { grid-template-columns: 1fr; row-gap: 13px; }
+          .area-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 13px; }
           .area-cta { padding: 30px 18px; }
           .area-cta-button { min-width: 0; width: 100%; }
           .faq-question { gap: 16px; align-items: flex-start; }
@@ -794,6 +810,30 @@ export default function FinestPropertyServices() {
           </div>
         </div>
       </footer>
+      {/* Floating live-help button */}
+      <div className={`live-button-container${liveOpen ? " open" : ""}`}>
+        <div className="live-options" aria-hidden={!liveOpen}>
+          <a href="https://web.whatsapp.com" target="_blank" rel="noopener noreferrer" className="live-option whatsapp" aria-label="Chat on WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="live-option facebook" aria-label="Open Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+        </div>
+        <button
+          type="button"
+          className="live-button"
+          aria-expanded={liveOpen}
+          aria-controls="live-options"
+          onClick={() => setLiveOpen((s) => !s)}
+        >
+          Help
+        </button>
+      </div>
     </div>
   );
 }
