@@ -328,6 +328,10 @@ export default function FinestPropertyServices() {
         .live-option.facebook { background: #1877F2; }
         .live-option:hover { transform: translateY(-3px); }
         .live-option-label { font-size: 12px; margin-left: 8px; color: #fff; font-weight: 700; }
+        .still-question-section { padding: 30px 24px; margin: 0 auto 60px; border-radius: 8px; background: #F2F2F2; max-width: 1100px; }
+        .still-question-section h3 { margin: 0 0 10px; }
+        .still-question-section p { margin: 0 0 18px; }
+        .still-question-section .contact-cta { display: inline-block; }
         
         .yellow-bar { background: #f5a623; color: #fff; }
         
@@ -405,6 +409,8 @@ export default function FinestPropertyServices() {
           .area-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 13px; }
           .area-cta { padding: 30px 18px; }
           .area-cta-button { min-width: 0; width: 100%; }
+          .still-question-section { padding: 20px 12px; margin: 0 12px 28px; border-radius: 6px; }
+          .still-question-section .contact-cta { width: 100%; box-sizing: border-box; }
           .faq-question { gap: 16px; align-items: flex-start; }
           .faq-answer { padding-left: 0; padding-right: 0; }
           .why-title { white-space: normal !important; width: auto !important; }
@@ -749,11 +755,11 @@ export default function FinestPropertyServices() {
       </section>
 
       {/* ─── STILL HAVE A QUESTION ─── */}
-      <section style={{ padding: "30px 14px", marginLeft:195,marginRight:195, marginBottom: 60, borderRadius: 8, background: "#F2F2F2" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+      <section className="still-question-section">
+        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
           <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 20, fontWeight: 800, color: "#2F3A56", marginBottom: 12 }}>STILL HAVE A QUESTION?</h3>
           <p style={{ color: "#666", fontSize: 15, marginBottom: 18 }}>Our friendly team is here to help. Get in touch for personalized assistance.</p>
-          <a href="#contact" className="btn-primary" style={{ display: "inline-block", padding: "12px 28px", textDecoration: "none" }}>Contact Us</a>
+          <a href="#contact" className="btn-primary contact-cta" style={{ display: "inline-block", padding: "12px 28px", textDecoration: "none" }}>Contact Us</a>
         </div>
       </section>
 
