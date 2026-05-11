@@ -482,6 +482,8 @@ export default function FinestPropertyServices() {
         </div>
       </section>
 
+      
+
       {/* ─── SERVICES WE PROVIDE ─── */}
       <section id="services" style={{ padding: "80px 24px", background: "#fafafa" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -743,19 +745,25 @@ export default function FinestPropertyServices() {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: "center", marginTop: 32 }}>
-            <button className="btn-primary">STILL HAVE QUESTIONS?</button>
-          </div>
+        </div>
+      </section>
+
+      {/* ─── STILL HAVE A QUESTION ─── */}
+      <section style={{ padding: "30px 14px", marginLeft:195,marginRight:195, marginBottom: 60, borderRadius: 8, background: "#F2F2F2" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+          <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 20, fontWeight: 800, color: "#2F3A56", marginBottom: 12 }}>STILL HAVE A QUESTION?</h3>
+          <p style={{ color: "#666", fontSize: 15, marginBottom: 18 }}>Our friendly team is here to help. Get in touch for personalized assistance.</p>
+          <a href="#contact" className="btn-primary" style={{ display: "inline-block", padding: "12px 28px", textDecoration: "none" }}>Contact Us</a>
         </div>
       </section>
 
       {/* ─── NEED HELP WITH YOUR PROPERTY? (CTA) ─── */}
-      <section className="cta-section" style={{ padding: "64px 24px", background: "#1a1a2e", textAlign: "center" }}>
-        <h2 className="cta-title" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 28, fontWeight: 800, color: "#fff", textTransform: "uppercase", marginBottom: 12 }}>NEED HELP WITH YOUR PROPERTY?</h2>
-        <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 15, marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
-          Call us free, we deliver top-quality results. Get in touch with us today! We&apos;ll be happy to talk about how we can help.
+      <section className="cta-section" style={{ padding: "64px 24px", background: "#f5a623", textAlign: "center" }}>
+        <h2 className="cta-title" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 28, fontWeight: 800, color: "#2F3A56", textTransform: "uppercase", marginBottom: 12 }}>NEED HELP WITH YOUR PROPERTY?</h2>
+        <p style={{ color: "#2F3A56", fontSize: 18, marginBottom: 28, maxWidth: 750, fontWeight: 500, margin: "0 auto 28px" }}>
+          Get a free, no-obligation quote today. Our expert team is ready to help with all your maintenance needs.
         </p>
-        <button className="btn-primary" style={{ fontSize: 16, padding: "16px 40px" }}>GET A FREE QUOTE</button>
+        <button className="btn-primary" style={{ fontSize: 16, padding: "16px 40px",background:"#2F3A56" }}>GET A FREE QUOTE</button>
       </section>
 
       {/* ─── FOOTER ─── */}
@@ -765,20 +773,20 @@ export default function FinestPropertyServices() {
             {/* About */}
             <div>
               <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#fff", textTransform: "uppercase", marginBottom: 16 }}>ABOUT FIXORA</h4>
-              <p style={{ fontSize: 13, lineHeight: 1.8, color: "#888" }}>
+              <p style={{ fontSize: 13, lineHeight: 1.8, color: "#D1D5DC" }}>
                 The FIXORA is London&apos;s trusted property maintenance company, providing reliable and affordable services for homes and businesses across the city.
               </p>
               <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-                <span style={{ color: "#888", cursor: "pointer" }}><FacebookIcon /></span>
-                <span style={{ color: "#888", cursor: "pointer" }}><TwitterIcon /></span>
-                <span style={{ color: "#888", cursor: "pointer" }}><InstagramIcon /></span>
-                <span style={{ color: "#888", cursor: "pointer" }}><LinkedInIcon /></span>
+                <span style={{ color: "#D1D5DC", cursor: "pointer" }}><FacebookIcon /></span>
+                <span style={{ color: "#D1D5DC", cursor: "pointer" }}><TwitterIcon /></span>
+                <span style={{ color: "#D1D5DC", cursor: "pointer" }}><InstagramIcon /></span>
+                <span style={{ color: "#D1D5DC", cursor: "pointer" }}><LinkedInIcon /></span>
               </div>
             </div>
 
             {/* Services */}
             <div>
-              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#fff", textTransform: "uppercase", marginBottom: 16 }}>SERVICES</h4>
+              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#D1D5DC", textTransform: "uppercase", marginBottom: 16 }}>SERVICES</h4>
               {["Plumbing", "Electrical Work", "Painting & Decorating", "Carpentry", "Cleaning", "Handyman"].map((s, i) => (
                 <a key={i} className="footer-link" href="#">{s}</a>
               ))}
@@ -786,7 +794,7 @@ export default function FinestPropertyServices() {
 
             {/* Quick Links */}
             <div>
-              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#fff", textTransform: "uppercase", marginBottom: 16 }}>QUICK LINKS</h4>
+              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#D1D5DC", textTransform: "uppercase", marginBottom: 16 }}>QUICK LINKS</h4>
               {["About Us", "Our Services", "Areas We Cover", "Contact Us", "Privacy Policy"].map((s, i) => (
                 <a key={i} className="footer-link" href="#">{s}</a>
               ))}
@@ -794,8 +802,8 @@ export default function FinestPropertyServices() {
 
             {/* Contact */}
             <div>
-              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#fff", textTransform: "uppercase", marginBottom: 16 }}>CONTACT US</h4>
-              <div style={{ fontSize: 13, lineHeight: 2.2, color: "#888" }}>
+              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#D1D5DC", textTransform: "uppercase", marginBottom: 16 }}>CONTACT US</h4>
+              <div style={{ fontSize: 13, lineHeight: 2.2, color: "#D1D5DC" }}>
                 <p>📍 123 Property Lane</p>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;London, EC1A 1BB</p>
                 <p>📞 020 234 5678</p>
@@ -806,7 +814,7 @@ export default function FinestPropertyServices() {
 
           {/* Bottom bar */}
           <div className="footer-bottom" style={{ borderTop: "1px solid #222", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <p style={{ fontSize: 12, color: "#666" }}>© 2025 Fixora Property Services. All rights reserved.</p>
+            <p style={{ fontSize: 12, color: "#99A1AF" }}>© 2025 Fixora Property Services. All rights reserved.</p>
             <div style={{ display: "flex", gap: 16 }}>
               <a className="footer-link" href="#" style={{ fontSize: 12 }}>Privacy Policy</a>
               <a className="footer-link" href="#" style={{ fontSize: 12 }}>Terms of Service</a>
