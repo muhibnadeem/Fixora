@@ -73,28 +73,29 @@ const LinkedInIcon = () => (
 /* ─── Service Icons ─── */
 /* ─── Why Choose Us Icons ─── */
 const TrustedIcon = () => (
-  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f5a623" strokeWidth="2">
+  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
   </svg>
 );
 const FastIcon = () => (
-  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f5a623" strokeWidth="2">
+  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
   </svg>
 );
 const AffordableIcon = () => (
-  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f5a623" strokeWidth="2">
+  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
   </svg>
 );
 const EmergencyIcon = () => (
-  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f5a623" strokeWidth="2">
+  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
   </svg>
 );
 
+
 const MapPinIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f5a623" strokeWidth="2">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
   </svg>
 );
@@ -505,9 +506,9 @@ export default function FinestPropertyServices() {
       </section>
 
       {/* ─── WHY CHOOSE US ─── */}
-      <section style={{ background: "#f5a623", padding: "48px 24px" }}>
+      <section style={{ background: "#F2F2F2", padding: "48px 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 28, fontWeight: 800, color: "#fff", textTransform: "uppercase", textAlign: "center", marginBottom: 36 }}>WHY CHOOSE US</h2>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 38, fontWeight: 800, color: "#2F3A56", textTransform: "uppercase", textAlign: "center", marginBottom: 36 }}>WHY CHOOSE US</h2>
           <div className="why-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
             {[
               { icon: <TrustedIcon />, title: "TRUSTED PROFESSIONALS", desc: "Our tradespeople are fully vetted, qualified, and experienced professionals." },
@@ -516,11 +517,11 @@ export default function FinestPropertyServices() {
               { icon: <EmergencyIcon />, title: "24/7 EMERGENCY SERVICE", desc: "Available around the clock for urgent property maintenance emergencies." },
             ].map((item, i) => (
               <div key={i} style={{ textAlign: "center", padding: "20px 12px" }}>
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: 14, background: "rgba(255,255,255,0.2)", width: 64, height: 64, borderRadius: "50%", alignItems: "center", margin: "0 auto 14px" }}>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 14, background: "#f5a623", width: 64, height: 64, borderRadius: "50%", alignItems: "center", margin: "0 auto 14px", color: "#fff" }}>
                   {item.icon}
                 </div>
-                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, fontWeight: 700, color: "#fff", textTransform: "uppercase", marginBottom: 10, letterSpacing: 0.5 }}>{item.title}</h3>
-                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.9)", lineHeight: 1.6 }}>{item.desc}</p>
+                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, fontWeight: 700, color: "#2F3A56", textTransform: "uppercase", marginBottom: 10, letterSpacing: 0.5 }}>{item.title}</h3>
+                <p style={{ fontSize: 13, color: "#2F3A56", lineHeight: 1.6 }}>{item.desc}</p>
               </div>
             ))}
           </div>
