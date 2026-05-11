@@ -312,11 +312,11 @@ export default function FinestPropertyServices() {
         .footer-link:hover { color: #f5a623; }
         /* Floating live-help button */
         .live-button-container { position: fixed; right: 20px; bottom: 20px; z-index: 2200; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 12px; }
-        .live-button { position: relative; background: #f5a623; color: #111122; border: none; width: 56px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(26,26,46,0.18); cursor: pointer; font-weight: 800; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 12px; padding: 0 12px; }
+        .live-button { position: relative; background: #f5a623; color: #111122; border: none; width: 56px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(26,26,46,0.18); cursor: pointer; font-weight: 800; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 12px; padding: 0 12px; overflow: visible; }
         .live-button:focus { outline: 3px solid rgba(245,166,35,0.22); }
-        .live-button::after { content: ''; position: absolute; top: -6px; right: -6px; width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0 rgba(245,166,35,0.9); }
-        @keyframes liveBeat { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,166,35,0.9); } 60% { transform: scale(1.4); box-shadow: 0 0 18px 8px rgba(245,166,35,0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,166,35,0); } }
-        .live-button::after { animation: liveBeat 1.6s ease-in-out infinite; }
+        .live-button .ping { position: absolute; inset: 0; border-radius: 999px; background: #cad325; opacity: 0.75; animation: pingAnim 1.6s cubic-bezier(0,0,0.2,1) infinite; pointer-events: none; }
+        @keyframes pingAnim { 0% { transform: scale(0.9); opacity: 0.75; } 75% { transform: scale(1.6); opacity: 0; } 100% { transform: scale(1.6); opacity: 0; } }
+        .live-button:hover .ping { animation: none; opacity: 0; }
         .live-options { display: none; flex-direction: column; gap: 10px; align-items: center; }
         .live-button-container.open .live-options { display: flex; }
         .live-option { width: 48px; height: 48px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); transition: transform 0.18s, opacity 0.18s; }
@@ -831,7 +831,8 @@ export default function FinestPropertyServices() {
           aria-controls="live-options"
           onClick={() => setLiveOpen((s) => !s)}
         >
-          Help
+          <span className="ping" aria-hidden="true"></span>
+          <span style={{ position: "relative", zIndex: 2 }}>Help</span>
         </button>
       </div>
     </div>
