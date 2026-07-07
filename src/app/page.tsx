@@ -289,6 +289,7 @@ export default function FinestPropertyServices() {
         .why-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 250px; margin: 0 auto; box-sizing: border-box; }
           .why-title { white-space: normal; overflow: visible; text-overflow: clip; max-width: none; width: auto; margin: 0 auto; box-sizing: border-box; }
         .still-question-section { padding: 30px 24px; margin: 0 auto 60px; border-radius: 8px; background: #F2F2F2; max-width: 1100px; }
+        .still-question-inner { max-width: 710px; margin: 0 auto; text-align: center; }
         .still-question-section h3 { margin: 0 0 10px; }
         .still-question-section p { margin: 0 0 18px; }
         .still-question-section .contact-cta { display: inline-block; }
@@ -370,6 +371,7 @@ export default function FinestPropertyServices() {
           .area-cta { padding: 30px 18px; }
           .area-cta-button { min-width: 0; width: 100%; }
           .still-question-section { padding: 20px 12px; margin: 0 12px 28px; border-radius: 6px; }
+          .still-question-inner { max-width: none; }
           .still-question-section .contact-cta { width: 100%; box-sizing: border-box; }
           .faq-question { gap: 16px; align-items: flex-start; }
           .faq-answer { padding-left: 0; padding-right: 0; }
@@ -674,10 +676,10 @@ export default function FinestPropertyServices() {
 
       {/* ─── STILL HAVE A QUESTION ─── */}
       <section className="still-question-section">
-        <div style={{  marginLeft: "195px", marginRight: "195px", textAlign: "center" }}>
+        <div className="still-question-inner">
           <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 20, fontWeight: 800, color: "#2F3A56", marginBottom: 12 }}>STILL HAVE A QUESTION?</h3>
           <p style={{ color: "#666", fontSize: 15, marginBottom: 18 }}>Our friendly team is here to help. Get in touch for personalized assistance.</p>
-          <a href="#contact" className="btn-primary contact-cta" style={{ display: "inline-block", padding: "12px 28px", textDecoration: "none" }}>Contact Us</a>
+          <a href="/contact" className="btn-primary contact-cta" style={{ display: "inline-block", padding: "12px 28px", textDecoration: "none" }}>Contact Us</a>
         </div>
       </section>
 
