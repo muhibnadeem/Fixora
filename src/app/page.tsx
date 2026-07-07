@@ -1,22 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef, type MouseEvent, type TouchEvent } from "react";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 
 const StarIcon = ({ filled = true }) => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill={filled ? "#f5a623" : "#ddd"} stroke="none">
     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-  </svg>
-);
-
-const PhoneIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-  </svg>
-);
-
-const MailIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
   </svg>
 );
 
@@ -57,19 +47,6 @@ const ArrowRight = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m9 18 6-6-6-6"/></svg>
 );
 
-const FacebookIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-);
-const TwitterIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-);
-const InstagramIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-);
-const LinkedInIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-);
-
 /* ─── Service Icons ─── */
 /* ─── Why Choose Us Icons ─── */
 const TrustedIcon = () => (
@@ -106,8 +83,6 @@ export default function FinestPropertyServices() {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [showAllServices, setShowAllServices] = useState(false);
   const [activeReviewSlide, setActiveReviewSlide] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [liveOpen, setLiveOpen] = useState(false);
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const isDragging = useRef(false);
 
@@ -313,21 +288,6 @@ export default function FinestPropertyServices() {
         .footer-link:hover { color: #f5a623; }
         .why-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 250px; margin: 0 auto; box-sizing: border-box; }
           .why-title { white-space: normal; overflow: visible; text-overflow: clip; max-width: none; width: auto; margin: 0 auto; box-sizing: border-box; }
-        /* Floating live-help button */
-        .live-button-container { position: fixed; right: 20px; bottom: 20px; z-index: 2200; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 12px; }
-        .live-button { position: relative; background: #f5a623; color: #111122; border: none; width: 56px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(26,26,46,0.18); cursor: pointer; font-weight: 800; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 12px; padding: 0 12px; overflow: visible; }
-        .live-button:focus { outline: 3px solid rgba(245,166,35,0.22); }
-        .live-button .ping { position: absolute; inset: 0; border-radius: 999px; background: #cad325; opacity: 0.75; animation: pingAnim 1.6s cubic-bezier(0,0,0.2,1) infinite; pointer-events: none; }
-        @keyframes pingAnim { 0% { transform: scale(0.9); opacity: 0.75; } 75% { transform: scale(1.6); opacity: 0; } 100% { transform: scale(1.6); opacity: 0; } }
-        .live-button:hover .ping { animation: none; opacity: 0; }
-        .live-options { display: none; flex-direction: column; gap: 10px; align-items: center; }
-        .live-button-container.open .live-options { display: flex; }
-        .live-option { width: 48px; height: 48px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; box-shadow: 0 6px 16px rgba(0,0,0,0.12); transition: transform 0.18s, opacity 0.18s; }
-        .live-option.whatsapp { background: #25D366; }
-        .live-option.messenger { background: #0084FF; }
-        .live-option.facebook { background: #1877F2; }
-        .live-option:hover { transform: translateY(-3px); }
-        .live-option-label { font-size: 12px; margin-left: 8px; color: #fff; font-weight: 700; }
         .still-question-section { padding: 30px 24px; margin: 0 auto 60px; border-radius: 8px; background: #F2F2F2; max-width: 1100px; }
         .still-question-section h3 { margin: 0 0 10px; }
         .still-question-section p { margin: 0 0 18px; }
@@ -417,49 +377,7 @@ export default function FinestPropertyServices() {
         }
       `}</style>
 
-      {/* ─── HEADER / NAV ─── */}
-      <header style={{ position: "sticky", top: 0, zIndex: 1000, boxShadow: "0 2px 12px rgba(0,0,0,0.08)" }}>
-        <div style={{ background: "#fff", borderBottom: "1px solid #eee" }}>
-          <div className="topbar-inner" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", minHeight: 48, gap: 20 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 32, height: 32, background: "#f5a623", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ color: "#fff", fontWeight: 900, fontSize: 18, fontFamily: "'Montserrat', sans-serif" }}>F</span>
-              </div>
-              <span style={{ color: "#1a1a2e", fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 15, textTransform: "uppercase", letterSpacing: 0.3 }}>Fixora Property Services</span>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap", justifyContent: "flex-end" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#1a1a2e", fontSize: 14, fontWeight: 600 }}>
-                <PhoneIcon />
-                <span>020 234 5678</span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#1a1a2e", fontSize: 14, fontWeight: 600 }}>
-                <MailIcon />
-                <span>info@fps.co.uk</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style={{ background: "#f5a623" }}>
-          <nav className={`main-nav${isMenuOpen ? " open" : ""}`} style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "center", gap: 28, minHeight: 58 }}>
-            <button
-              className="menu-toggle"
-              type="button"
-              aria-expanded={isMenuOpen}
-              aria-controls="main-navigation-links"
-              onClick={() => setIsMenuOpen((open) => !open)}
-            >
-              <span className="menu-toggle-lines" aria-hidden="true"><span /><span /><span /></span>
-              Menu
-            </button>
-            <a className="nav-link" id="main-navigation-links" href="#home" onClick={() => setIsMenuOpen(false)}>HOME</a>
-            <a className="nav-link" href="#services" onClick={() => setIsMenuOpen(false)}>SERVICES</a>
-            <a className="nav-link" href="#areas" onClick={() => setIsMenuOpen(false)}>AREAS</a>
-            <a className="nav-link" href="#faq" onClick={() => setIsMenuOpen(false)}>FAQ</a>
-            <a className="nav-quote-button" href="#contact" onClick={() => setIsMenuOpen(false)}>FREE QUOTE</a>
-            <a className="nav-link" href="#contact" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* ─── HERO SECTION ─── */}
       <section id="home" className="hero-section" style={{
@@ -756,7 +674,7 @@ export default function FinestPropertyServices() {
 
       {/* ─── STILL HAVE A QUESTION ─── */}
       <section className="still-question-section">
-        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
+        <div style={{  marginLeft: "195px", marginRight: "195px", textAlign: "center" }}>
           <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 20, fontWeight: 800, color: "#2F3A56", marginBottom: 12 }}>STILL HAVE A QUESTION?</h3>
           <p style={{ color: "#666", fontSize: 15, marginBottom: 18 }}>Our friendly team is here to help. Get in touch for personalized assistance.</p>
           <a href="#contact" className="btn-primary contact-cta" style={{ display: "inline-block", padding: "12px 28px", textDecoration: "none" }}>Contact Us</a>
@@ -772,87 +690,7 @@ export default function FinestPropertyServices() {
         <button className="btn-primary" style={{ fontSize: 16, padding: "16px 40px",background:"#2F3A56" }}>GET A FREE QUOTE</button>
       </section>
 
-      {/* ─── FOOTER ─── */}
-      <footer id="contact" style={{ background: "#111122", padding: "60px 24px 24px", color: "#aaa" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40, marginBottom: 40 }}>
-            {/* About */}
-            <div>
-              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#fff", textTransform: "uppercase", marginBottom: 16 }}>ABOUT FIXORA</h4>
-              <p style={{ fontSize: 13, lineHeight: 1.8, color: "#D1D5DC" }}>
-                The FIXORA is London&apos;s trusted property maintenance company, providing reliable and affordable services for homes and businesses across the city.
-              </p>
-              <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-                <span style={{ color: "#D1D5DC", cursor: "pointer" }}><FacebookIcon /></span>
-                <span style={{ color: "#D1D5DC", cursor: "pointer" }}><TwitterIcon /></span>
-                <span style={{ color: "#D1D5DC", cursor: "pointer" }}><InstagramIcon /></span>
-                <span style={{ color: "#D1D5DC", cursor: "pointer" }}><LinkedInIcon /></span>
-              </div>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#D1D5DC", textTransform: "uppercase", marginBottom: 16 }}>SERVICES</h4>
-              {["Plumbing", "Electrical Work", "Painting & Decorating", "Carpentry", "Cleaning", "Handyman"].map((s, i) => (
-                <a key={i} className="footer-link" href="#">{s}</a>
-              ))}
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#D1D5DC", textTransform: "uppercase", marginBottom: 16 }}>QUICK LINKS</h4>
-              {["About Us", "Our Services", "Areas We Cover", "Contact Us", "Privacy Policy"].map((s, i) => (
-                <a key={i} className="footer-link" href="#">{s}</a>
-              ))}
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 14, fontWeight: 700, color: "#D1D5DC", textTransform: "uppercase", marginBottom: 16 }}>CONTACT US</h4>
-              <div style={{ fontSize: 13, lineHeight: 2.2, color: "#D1D5DC" }}>
-                <p>📍 123 Property Lane</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;London, EC1A 1BB</p>
-                <p>📞 020 234 5678</p>
-                <p>✉️ info@fps.co.uk</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom bar */}
-          <div className="footer-bottom" style={{ borderTop: "1px solid #222", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <p style={{ fontSize: 12, color: "#99A1AF" }}>© 2025 Fixora Property Services. All rights reserved.</p>
-            <div style={{ display: "flex", gap: 16 }}>
-              <a className="footer-link" href="#" style={{ fontSize: 12 }}>Privacy Policy</a>
-              <a className="footer-link" href="#" style={{ fontSize: 12 }}>Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-      {/* Floating live-help button */}
-      <div className={`live-button-container${liveOpen ? " open" : ""}`}>
-        <div className="live-options" aria-hidden={!liveOpen}>
-          <a href="https://web.whatsapp.com" target="_blank" rel="noopener noreferrer" className="live-option whatsapp" aria-label="Chat on WhatsApp">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
-            </svg>
-          </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="live-option facebook" aria-label="Open Facebook">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h3z" />
-            </svg>
-          </a>
-        </div>
-        <button
-          type="button"
-          className="live-button"
-          aria-expanded={liveOpen}
-          aria-controls="live-options"
-          onClick={() => setLiveOpen((s) => !s)}
-        >
-          <span className="ping" aria-hidden="true"></span>
-          <span style={{ position: "relative", zIndex: 2 }}>Help</span>
-        </button>
-      </div>
+      <Footer />
     </div>
   );
 }
